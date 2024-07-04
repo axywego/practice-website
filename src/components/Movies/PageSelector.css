@@ -1,0 +1,23 @@
+.selector{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.selector button{
+    font-family: "Montserrat";
+    font-weight: 700;
+    background-color: white;
+    border-color: #545454;
+    border-radius: 6px;
+    border-width: 3px;
+    margin: 3px 3px;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+
+.selector button:active{
+    background-color: rgb(204, 204, 204);
+}
