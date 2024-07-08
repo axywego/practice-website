@@ -1,11 +1,12 @@
 .favourite-container{
-    margin-top: 2vw;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-left: 10vw;
     margin-right: 10vw;
     gap: 1.3rem;
+    margin-bottom: 50px;
     animation: slideUp 0.4s ease-in-out;
 }
 
@@ -54,13 +55,13 @@
 }
   
 .movie-card h2 {
-    margin-left: 1vw;
-    font-size: min(16px, 4vw, 24px);
+    margin-left: 1rem;
+    font-size: clamp(20px, 2vw, 24px);
 }
   
 .movie-card p {
     margin: 1rem;
-    font-size: clamp(8px, 4vw, 24px);
+    font-size: clamp(14px, 2vw, 24px);
 }
   
 .movie-card button {
@@ -95,5 +96,11 @@
     }
     .movie-card__text button {
         margin-left: 10px;
+    }
+}
+
+@media(max-width: 375px){
+    .movie-card{
+        flex-direction: column;
     }
 }
