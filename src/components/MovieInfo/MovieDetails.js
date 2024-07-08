@@ -53,7 +53,7 @@ const MovieDetails = (props) => {
                 <button onClick={() => props.onIsActive(false, movie)}>
                    {"<"} Back to List
                 </button>
-                {index!==19 && (
+                {index !== 19 && (
                     <button onClick={handlerNextMovie}>
                         Next Movie {">"}
                     </button>
@@ -63,13 +63,17 @@ const MovieDetails = (props) => {
             <div className="details__info">
                 <img src={poster}></img>
                 <div className="details__info-text">
-                    <h2>{title}</h2>
-                    <h4>Score: {score} | Rating: {rating} | Release Date: {releaseDate}</h4>
-                    <p>{description}</p>
-                    <button className="details__info__favorite-button"
+                    <div className="title-btn">
+                        <h2>{title}</h2>
+                        <button className="details__info__favorite-button"
                             onClick={favouriteHandler}>
-                        {isFavourite ? "Unfavourite" : "Add to favourite"}
-                    </button>
+                            {isFavourite ? "Unfavourite" : "Add to favourite"}
+                        </button>
+                    </div>
+                    <div className="description">
+                        <h4>Score: {score} | Rating: {rating} | Release Date: {releaseDate}</h4>
+                        <p>{description}</p>
+                    </div>   
                 </div>
             </div>
         </div>

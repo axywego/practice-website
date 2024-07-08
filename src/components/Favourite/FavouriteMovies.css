@@ -19,6 +19,8 @@
 }
 
 .movie-section {
+    height: 100%;
+    max-height: 900px;
     display: grid;
     grid-gap: 2rem;
 }
@@ -46,17 +48,19 @@
 }
   
 .movie-card img {
-    width: 133px;
-    height: 200px;
+    height: 225px;
+    width: 150px;
     object-fit: cover;
 }
   
 .movie-card h2 {
     margin-left: 1vw;
+    font-size: min(16px, 4vw, 24px);
 }
   
 .movie-card p {
     margin: 1rem;
+    font-size: clamp(8px, 4vw, 24px);
 }
   
 .movie-card button {
@@ -65,10 +69,12 @@
     background-color: #333;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
+
     border-radius: 4px;
     cursor: pointer;
-    margin-bottom: 1rem;
+    
+    height: 40px;
+    width: 100px;
 }
   
 @keyframes slideUp{
@@ -79,5 +85,15 @@
     100%{
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@media(max-width: 900px){
+    .movie-card__text{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .movie-card__text button {
+        margin-left: 10px;
     }
 }
