@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./MovieDetails.css";
+import StarIcon from "./star.png"
 const imageBaseUrl = 'http://image.tmdb.org/t/p/w342';
 
 const MovieDetails = (props) => {
@@ -17,6 +18,21 @@ const MovieDetails = (props) => {
                                           .toLocaleString("en-US", 
                                           { month: 'long', day: 'numeric', year: 'numeric' }));
     const [description, setDescription] = useState(movie.overview);
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+    
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     const handlerNextMovie = () => {
         if(index != 19){
@@ -61,13 +77,20 @@ const MovieDetails = (props) => {
                 }
             </div>
             <div className="details__info">
-                <img src={poster}></img>
+                <img className="details__info-poster" src={poster}></img>
                 <div className="details__info-text">
                     <div className="title-btn">
                         <h2>{title}</h2>
                         <button className="details__info__favorite-button"
                             onClick={favouriteHandler}>
-                            {isFavourite ? "Unfavourite" : "Add to favourite"}
+                            {isMobile ? 
+                                <img 
+                                    className="details__info__favorite-button-img" 
+                                    style={{filter: isFavourite ? "grayscale(0%)" : "grayscale(100%)",}}
+                                    src ={StarIcon}/>
+                              : 
+                                isFavourite ? "Unfavourite" : "Add to Favourite"
+                            }
                         </button>
                     </div>
                     <div className="description">

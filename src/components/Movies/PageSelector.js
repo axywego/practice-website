@@ -9,10 +9,13 @@ const PageSelector = (props) => {
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
-        fetch(`${apiBaseUrl}?api_key=${apiKey}&page=${currentPage}`).
-        then(response => response.json()).
-        then(data => { setTotalPages(data.total_pages);
-             props.onGetMovies(data.results);});
+        const fetchData = async () => {
+            fetch(`${apiBaseUrl}?api_key=${apiKey}&page=${currentPage}`).
+                then(response => response.json()).
+                then(data => { setTotalPages(data.total_pages);
+                        props.onGetMovies(data.results)});
+        }
+        fetchData();
         props.onGetPage(currentPage);
     }, [currentPage]);
 
