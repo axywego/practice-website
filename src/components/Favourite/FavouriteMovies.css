@@ -61,12 +61,13 @@
   
 .movie-card p {
     margin: 1rem;
-    font-size: clamp(14px, 2vw, 24px);
+    font-size: clamp(14px, 2vw, 20px);
 }
   
 .movie-card button {
     font-family: "Montserrat", sans-serif;
     margin-right: 2vw;
+    margin: 10px;
     background-color: #333;
     color: #fff;
     border: none;

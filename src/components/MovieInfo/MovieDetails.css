@@ -108,5 +108,14 @@
     .details__info{
         flex-direction: none;
         flex-wrap: wrap;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .details__info__favorite-button{
+        height: 60px;
+        width: 60px;
+    }
+    .title-btn{
+        flex-wrap: wrap;
     }
 }
